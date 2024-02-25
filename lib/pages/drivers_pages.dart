@@ -1,5 +1,6 @@
-import 'package:admin_uber_web_panel/methods/common_methods.dart';
 import 'package:flutter/material.dart';
+
+import '../methods/commomn_methods.dart';
 
 class DriversPage extends StatefulWidget
 {
