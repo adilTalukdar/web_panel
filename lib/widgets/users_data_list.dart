@@ -1,32 +1,31 @@
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/elevated_button.dart';
-import 'package:flutter/src/widgets/text.dart';
-import 'package:flutter/src/widgets/image.dart';
-
 
 import '../methods/commomn_methods.dart';
 
+//import '../methods/commomn_methods.dart';
 
-class DriversDataList extends StatefulWidget {
-  const DriversDataList({super.key});
+
+class UsersDataList extends StatefulWidget {
+  const UsersDataList({super.key});
 
   @override
-  State<DriversDataList> createState() => _DriversDataListState();
+  State<UsersDataList> createState() => _UsersDataListState();
 }
 
 
 
-class _DriversDataListState extends State<DriversDataList>
+class _UsersDataListState extends State<UsersDataList>
 {
-  final driversRecordsFromDatabase = FirebaseDatabase.instance.ref().child("driver");
+  final usersRecordsFromDatabase = FirebaseDatabase.instance.ref().child("users");
   CommonMethods cMethods = CommonMethods();
 
   @override
   Widget build(BuildContext context)
   {
     return StreamBuilder(
-      stream: driversRecordsFromDatabase.onValue,
+      stream: usersRecordsFromDatabase.onValue,
       builder: (BuildContext context, snapshotData)
       {
         if(snapshotData.hasError)
@@ -73,36 +72,17 @@ class _DriversDataListState extends State<DriversDataList>
 
                 cMethods.data(
                   1,
-                  Image.network(
-                    itemsList[index]["photo"].toString(),
-                    width: 50,
-                    height: 50,
-                  ),
-                ),
-
-                cMethods.data(
-                  1,
                   Text(itemsList[index]["name"].toString()),
                 ),
 
                 cMethods.data(
                   1,
-                  Text(
-                      itemsList[index]["car_details"]["carModel"].toString() + " - " +
-                          itemsList[index]["car_details"]["carNumber"].toString()
-                  ),
+                  Text(itemsList[index]["email"].toString()),
                 ),
 
                 cMethods.data(
                   1,
                   Text(itemsList[index]["phone"].toString()),
-                ),
-
-                cMethods.data(
-                  1,
-                  itemsList[index]["earnings"] != null ?
-                  Text("\$ " + itemsList[index]["earnings"].toString())
-                      : const Text("\$ 0"),
                 ),
 
                 cMethods.data(
