@@ -19,7 +19,7 @@ void main() async
         measurementId: "G-ZL2MVCVDYZ"
     )
   );
-  
+
   runApp(const MyApp());
 }
 
