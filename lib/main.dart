@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dashboard/side_navigation_drawer.dart';
+
 void main()
 {
   WidgetsFlutterBinding.ensureInitialized();
@@ -7,7 +9,8 @@ void main()
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget
+{
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -19,9 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Admin Panel',
       theme: ThemeData(
         primarySwatch: Colors.pink,
-
       ),
-      home: ,
+      home: SideNavigationDrawer(),
     );
   }
 }
