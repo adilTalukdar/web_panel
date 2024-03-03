@@ -1,9 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/elevated_button.dart';
-import 'package:flutter/src/widgets/text.dart';
-import 'package:flutter/src/widgets/image.dart';
-
 
 import '../methods/commomn_methods.dart';
 
@@ -19,7 +15,7 @@ class DriversDataList extends StatefulWidget {
 
 class _DriversDataListState extends State<DriversDataList>
 {
-  final driversRecordsFromDatabase = FirebaseDatabase.instance.ref().child("driver");
+  final driversRecordsFromDatabase = FirebaseDatabase.instance.ref().child("drivers");
   CommonMethods cMethods = CommonMethods();
 
   @override
@@ -109,9 +105,15 @@ class _DriversDataListState extends State<DriversDataList>
                   1,
                   itemsList[index]["blockStatus"] == "no" ?
                   ElevatedButton(
-                    onPressed: ()
+                    onPressed: () async
                     {
-
+                      await FirebaseDatabase.instance.ref()
+                          .child("drivers")
+                          .child(itemsList[index]["id"])
+                          .update(
+                          {
+                            "blockStatus": "yes",
+                          });
                     },
                     child: const Text(
                       "Block",
@@ -122,9 +124,15 @@ class _DriversDataListState extends State<DriversDataList>
                     ),
                   )
                       : ElevatedButton(
-                    onPressed: ()
+                    onPressed: () async
                     {
-
+                      await FirebaseDatabase.instance.ref()
+                          .child("drivers")
+                          .child(itemsList[index]["id"])
+                          .update(
+                          {
+                            "blockStatus": "no",
+                          });
                     },
                     child: const Text(
                       "Approve",
