@@ -48,7 +48,7 @@ class _TripsPageState extends State<TripsPage>
                   cMethods.header(2, "TRIP ID"),
                   cMethods.header(1, "USER NAME"),
                   cMethods.header(1, "DRIVER NAME"),
-                  cMethods.header(1, "CAR DETAILS"),
+                  cMethods.header(1, "Ambulance DETAILS"),
                   cMethods.header(1, "TIMING"),
                   cMethods.header(1, "FARE"),
                   cMethods.header(1, "VIEW DETAILS"),

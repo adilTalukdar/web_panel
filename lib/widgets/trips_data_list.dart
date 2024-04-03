@@ -97,7 +97,7 @@ class _TripsDataListState extends State<TripsDataList>
 
                   cMethods.data(
                     1,
-                    Text(itemsList[index]["carDetails"].toString()),
+                    Text(itemsList[index]["ambulanceDetails"].toString()),
                   ),
 
                   cMethods.data(
